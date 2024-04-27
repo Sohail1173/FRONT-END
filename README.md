@@ -6,7 +6,7 @@
 ## python -m venv myenv
 
 ## step 2: activate the virtual environment by running the blow command
-## myenv\scripts/activate
+## myenv\scripts\activate
 
 ## step 3:Install the dependencies by running the below command
 ## pip install -r requirements.txt
@@ -15,7 +15,9 @@
 ## step 4: Run the app.py file by running the following command 
 ## python app.py 
 
-## Enter the values you want to enter ui that will be saved in the mysql
+## after running the app.py you will see the front page  now you can entred the values delete the values,update the values.
+
+
 
 ## IF you want to Retrive data then run the following command in the browser
 

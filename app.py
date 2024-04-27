@@ -10,6 +10,7 @@ def fetch_all_data():
         response = requests.get(url)
         response.raise_for_status()  
         data = response.json()
+        print(data)
         return data.get('data', [])  
     except requests.exceptions.RequestException as e:
         print("Error fetching data from API:", e)

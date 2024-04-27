@@ -56,7 +56,9 @@
                     <td>{{ item.items_sold }}</td>
                     <td>{{ item.money_earned }}</td>
                     <td>{{ item.money_spent }}</td>
+                    <td>{{ item[' net_profit_loss_class_level'] }}</td>
                     <td>{{ item.net_loss_profit_per_student }}</td>
+
                     <td>
                         <form class="updateform" action="/updateitems/{{ item.id }}" method="POST">
                             <input type="hidden" name="_method" value="PUT">
@@ -64,7 +66,7 @@
                             <input type="number" name="items_sold" placeholder="Items Sold" value="{{ item.items_sold }}" required>
                             <input type="text" name="money_earned" placeholder="Money Earned" value="{{ item.money_earned }}" required>
                             <input type="text" name="money_spent" placeholder="Money Spent" value="{{ item.money_spent }}" required>
-                            <input type="text" name="net_profit_loss_class_level" placeholder="Net Profit/Loss (Class Level)" value="{{ item.net_profit_loss_class_level }}" required>
+                            <input type="text" name="net_profit_loss_class_level" placeholder="Net Profit/Loss (Class Level)" value="{{ item[' net_profit_loss_class_level'] }}" required>
                             <input type="text" name="net_loss_profit_per_student" placeholder="Net Loss/Profit Per Student" value="{{ item.net_loss_profit_per_student }}" required>
                             <button type="submit">Update</button>
                         </form>

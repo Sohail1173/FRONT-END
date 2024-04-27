@@ -1,0 +1,6 @@
+mysql-connector-python
+Flask
+pymysql
+python-dotenv
+Flask-Cors
+Werkzeug`

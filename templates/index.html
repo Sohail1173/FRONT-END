@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask API CRUD Demo</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .udpdateform{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .deletebtn{
+            width: "100%";
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Flask API CRUD Demo</h2>
+
+    <!-- Display Data in Table -->
+    <h3>Data</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student Name</th>
+                <th>Items Sold</th>
+                <th>Money Earned</th>
+                <th>Money Spent</th>
+                <th>Net Profit/Loss (Class Level)</th>
+              </tr>
+        </thead>
+        <tbody>
+            {% for item in all_data %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.student_name }}</td>
+                    <td>{{ item.items_sold }}</td>
+                    <td>{{ item.money_earned }}</td>
+                    <td>{{ item.money_spent }}</td>
+                     <td>{{ item.net_loss_profit_per_student }}</td>
+                    <td>
+                        <form class="udpdateform" action="/updateitems/{{ item.id }}" method="POST">
+                            <input type="hidden" name="_method" value="PUT">
+                            <input type="text" name="student_name" placeholder="Student Name" value="{{ item.student_name }}" required>
+                            <input type="number" name="items_sold" placeholder="Items Sold" value="{{ item.items_sold }}" required>
+                            <input type="text" name="money_earned" placeholder="Money Earned" value="{{ item.money_earned }}" required>
+                            <input type="text" name="money_spent" placeholder="Money Spent" value="{{ item.money_spent }}" required>
+                             <input type="text" name="net_loss_profit_per_student" placeholder="Net Loss/Profit Per Student" value="{{ item.net_loss_profit_per_student }}" required>
+                            <button type="submit">Update</button>
+                        </form>
+                        <form class="deletebtn" action="/deleteitems/{{ item.id }}" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Create Form -->
+    <h3>Create</h3>
+    <form action="/additems" method="post">
+        <label for="student_name">Student Name:</label>
+        <input type="text" id="student_name" name="student_name" placeholder="Student Name" required>
+        <label for="items_sold">Items Sold:</label>
+        <input type="number" id="items_sold" name="items_sold" placeholder="Items Sold" required>
+        <label for="money_earned">Money Earned:</label>
+        <input type="text" id="money_earned" name="money_earned" placeholder="Money Earned" required>
+        <label for="money_spent">Money Spent:</label>
+        <input type="text" id="money_spent" name="money_spent" placeholder="Money Spent" required>
+         <input type="text" id="net_profit_loss_class_level" name="net_profit_loss_class_level" placeholder="Net Profit/Loss (Class Level)" required>
+        <label for="net_loss_profit_per_student">Net Loss/Profit Per Student:</label>
+        <input type="text" id="net_loss_profit_per_student" name="net_loss_profit_per_student" placeholder="Net Loss/Profit Per Student" required>
+        <button type="submit">Create</button>
+    </form>
+
+</body>
+</html>

@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 
 def fetch_all_data():
-    url = 'https://f6dd-2409-408c-8dbe-c618-604b-621-7953-b35.ngrok-free.app/getitems'
+    url = ' https://2a40-2409-408c-8dbe-c618-bdcf-92f0-23f2-9194.ngrok-free.app/getitems'
     try:
         response = requests.get(url)
         response.raise_for_status()  
@@ -40,7 +40,7 @@ def create():
     net_profit_loss_class_level = request.form['net_profit_loss_class_level']
     net_loss_profit_per_student = request.form['net_loss_profit_per_student']
 
-    create_url = 'https://f6dd-2409-408c-8dbe-c618-604b-621-7953-b35.ngrok-free.app/additems'
+    create_url = ' https://2a40-2409-408c-8dbe-c618-bdcf-92f0-23f2-9194.ngrok-free.app/additems'
     payload = {
         'student_name': student_name,
         'items_sold': items_sold,
@@ -66,7 +66,7 @@ def update(id):
     net_profit_loss_class_level = request.form['net_profit_loss_class_level']
     net_loss_profit_per_student = request.form['net_loss_profit_per_student']
 
-    update_url = f'https://f6dd-2409-408c-8dbe-c618-604b-621-7953-b35.ngrok-free.app/updateitems/{id}'
+    update_url = f' https://2a40-2409-408c-8dbe-c618-bdcf-92f0-23f2-9194.ngrok-free.app/updateitems/{id}'
     payload = {
         'student_name': student_name,
         'items_sold': items_sold,
@@ -84,7 +84,7 @@ def update(id):
 
 @app.route('/deleteitems/<int:id>', methods=['POST', 'DELETE'])
 def delete(id):
-    delete_url = f'https://f6dd-2409-408c-8dbe-c618-604b-621-7953-b35.ngrok-free.app/deleteitems/{id}'
+    delete_url = f' https://2a40-2409-408c-8dbe-c618-bdcf-92f0-23f2-9194.ngrok-free.app/deleteitems/{id}'
     try:
         response = requests.delete(delete_url)
         response.raise_for_status()  

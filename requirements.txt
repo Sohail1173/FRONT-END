@@ -3,4 +3,4 @@ Flask
 pymysql
 python-dotenv
 Flask-Cors
-Werkzeug`
+Werkzeug==2.2.2
